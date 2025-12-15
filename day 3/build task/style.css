@@ -74,8 +74,7 @@ h2{
     flex-direction: column;
     width: 250px;
     height: 250px;
-    max-width: 100%;
-    max-height: 100%;
+    
      background-color: rgba(227, 226, 226, 0.8);
    
     padding: 10px;
@@ -107,31 +106,36 @@ h2{
     flex-direction: row;
     flex-wrap: wrap;
     gap: 20px;
-    margin-top: 50px;
+    margin: 50px auto;
     justify-content: center;
-    
+    align-items: center;
 }
    
 
 .card1{
     display: flex;
     flex-direction: column;
+    align-items: center;
+  
+    
     
     background-color: rgba(221, 221, 221, 0.8);
     border-radius: 20px;
     
-     height: 300px;
+     height: 380px;
+     width: 380px;
      max-width: 100%;
      max-height: 100%;
-     padding: 10px;
+     padding: 5px;
      gap: 20px;
 }
 
 .cardImage1{
     
-   width: 90%;
-   max-height: 350px;
-   margin: auto;
+   width:300px;
+   
+   height: 300px;
+   
 }
 .cardImage1>img{
     width: 100%;
@@ -143,7 +147,7 @@ h2{
 }
 .cardText1{
     text-align: center;
-    font-size: 30px;
+    font-size: 24px;
     font-weight: 800;
     color: rgb(104, 106, 106);
     padding: 5px;
@@ -162,4 +166,24 @@ h2{
 
 iframe {
   margin-top: 30px;
+}
+
+/* Targets tablets and mobile phones */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+    
+    .header {
+        flex-direction: column;
+    }
+    
+    .card, .card1 {
+        width: 100%; /* Force full width on mobile */
+    }
+
+    .cardImage1,.cardImage{
+        width: 90%;
+    }
 }
