@@ -1,0 +1,609 @@
+:root {
+    --heading-color: #1a1a1a;
+    --body-bg-color: #fcfcfc;
+    --body-color: #333;
+    --section-title-underline-color: #d4a373;
+    --hero-section-bg-color: #fff;
+    --heading-tagline-color: #444;
+    --heading-location-color: #888;
+    --experience-section-bg-color: #f4ece8;
+    --service-section-bg-color: #fff;
+    --service-section-border-color: #eee;
+    --service-card-color: #444;
+    --footer-color: #444;
+    --contact-text: #ccc;
+    --contact-section-bg-color: #333;
+    --contact-section-color: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--body-color);
+    background-color: var(--body-bg-color)
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Georgia', serif;
+    font-weight: normal;
+    color: var(--heading-color);
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ========================
+   2. UTILITY CLASSES
+   ======================== */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background-color: var(--section-title-underline-color);
+
+    margin: 10px auto 0;
+}
+
+#status-badge {
+    padding: 10px;
+    margin: 20px auto;
+    /* background-color: rgb(5, 185, 5); */
+    /* color: white; */
+    width: 250px;
+    border-radius: 30px;
+
+}
+
+/* ========================
+   3. HERO & PROFILE SECTION
+   ======================== */
+.hero-section {
+    text-align: center;
+    padding: 80px 0 60px;
+    background-color: var(--hero-section-bg-color);
+}
+
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.image img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.artist-name {
+    font-size: 1rem;
+    letter-spacing: 2px;
+    margin-bottom: 0;
+}
+
+.tagline {
+    font-size: 1rem;
+    color: var(--heading-tagline-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.location-tag {
+    font-size: 0.9rem;
+    color: var(--heading-location-color);
+    margin-bottom: 20px;
+}
+
+/* ========================
+   4. EXPERIENCE SECTION
+   ======================== */
+.experience-section {
+    background-color: var(--experience-section-bg-color);
+    padding: 40px 0;
+}
+
+.stats-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2rem;
+    font-family: 'Georgia', serif;
+    color: #b07d62;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: #555;
+}
+
+/* ========================
+   5. SERVICES SECTION
+   ======================== */
+.services-section {
+    padding: 60px 0;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* One full-width column */
+    gap: 20px;
+}
+
+
+.services {
+    width: 100%;
+    min-height: 420px;
+    padding: 25px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    gap: 15px;
+
+    background: rgba(255, 255, 255, 0.7); 
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                box-shadow 0.4s ease;
+
+
+
+}
+
+.services:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.img {
+    width: 280px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 12px;
+    margin-bottom: 10px;
+
+}
+
+.img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image fills the 16:9 box perfectly */
+    transition: transform 0.5s ease; /
+}
+
+.services:hover .img img {
+    transform: scale(1.1);
+}
+
+.title {
+    font-size: 1.25rem; /* Better than 20px (Scalable) */
+    font-weight: 600;
+    color: var(--heading-color);
+    padding-bottom: 8px;
+    margin-bottom: 5px;
+    border-bottom: 2px dashed var(--section-title-underline-color); /* Linked to theme */
+    letter-spacing: 0.5px;
+}
+
+.desc {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    /* You already have the clamp logic - keep it! */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--section-title-underline-color);
+    margin-top: auto; /* Pushes the price to the bottom of the card */
+}
+
+.category {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #999;
+    font-weight: 500;
+}
+
+/* ========================
+   6. WORK SECTION (Images)
+   ======================== */
+
+.work-section {
+    padding: 0 0 60px;
+}
+
+.gallery-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    /* Increased gap slightly for better breathing room */
+    padding: 10px;
+    /* Padding so shadows don't get cut off */
+}
+
+/* The container holding the image */
+.gallery-item {
+    flex: 1 1 100%;
+    border-radius: 12px;
+    /* Softer corners */
+    overflow: hidden;
+    /* IMPORTANT: Keeps the zoom inside the box */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    /* Soft base drop shadow */
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    /* Smooth physics motion */
+    cursor: pointer;
+    /* Shows it's interactive */
+}
+
+/* The image itself */
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 4/5;
+    /* Standard portrait ratio */
+    transition: transform 0.6s ease;
+    /* Slower transition for the zoom */
+}
+
+/* --- HOVER EFFECTS --- */
+
+/* 1. Lift the whole box up */
+.gallery-item:hover {
+    transform: translateY(-8px);
+    /* Moves up */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    /* Shadow gets deeper and softer */
+}
+
+/* 2. Slowly zoom the image in */
+.gallery-item:hover img {
+    transform: scale(1.08);
+    /* Subtle zoom (8%) bigger */
+}
+
+/* Caption at the bottom */
+.video-caption {
+    text-align: center;
+    margin-top: 30px;
+    color: #888;
+    font-style: italic;
+    letter-spacing: 0.5px;
+}
+
+/* ========================
+   7. CONTACT SECTION
+   ======================== */
+.contact-section {
+
+
+
+    background-color: var(--contact-section-bg-color);
+    color: var(--contact-section-color);
+    text-align: center;
+    padding: 60px 0;
+}
+
+.contact-section .section-title {
+    color: #fff;
+}
+
+.contact-section .section-title::after {
+    background-color: #777;
+}
+
+.contact-text {
+    color: var(--contact-text);
+    margin-bottom: 20px;
+}
+
+.contact-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.footer-note {
+    font-size: 0.8rem;
+    color: var(--footer-color);
+
+    margin-top: 40px;
+}
+
+/* form section */
+/* Form Container */
+
+.form-section{
+    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+    margin-top: 30px;
+    padding: 30px;
+}
+::placeholder{
+    color: #777;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    /* Prevents it from getting too wide */
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    /* Soft shadow */
+}
+
+/* Labels hold the input and the error message */
+label {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 20px auto;
+    /* Centers items inside */
+    width: 100%;
+   
+}
+
+/* Input Improvement: Add a subtle hover effect */
+input:hover, select:hover {
+    border-color: #bbb;
+}
+
+input:focus::placeholder {
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+}
+
+/* Input Styling */
+input,
+select {
+    width: 100%;
+    max-width: 350px;
+    /* Limits input width */
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    /* Softer edges */
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+    
+    /* Smooth border color change */
+}
+
+/* Input Focus Effect */
+input:focus,
+select:focus {
+    border-color: #d4a373;
+    /* Gold/Theme color on focus */
+    box-shadow: 0 0 8px rgba(212, 163, 115, 0.3);
+}
+
+/* Button Styling */
+button {
+    width: 100%;
+    max-width: 350px;
+    padding: 12px;
+    background-color: var(--section-title-underline-color);
+    /* Use your variable */
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: transform 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* ERROR MESSAGE STYLING (Crucial) */
+.error-msg {
+    color: #e63946;
+    font-size: 0.85rem;
+    min-height: 20px;
+    width: 100%;
+    max-width: 350px; /* Matches the input width exactly */
+    text-align: left; 
+    padding-left: 5px;
+    margin-top: 4px; /* Space between input and error text */
+}
+
+/* Success Message: The "Fade-In" Prep */
+#successMsg {
+    display: none;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #2a9d8f;
+    text-align: center;
+    /* Optional: Adding a small animation */
+    animation: slideIn 0.4s ease-out;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+/* ========================
+   8. CREATIVE BUTTONS
+   ======================== */
+.btn-creative {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 35px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    width: 100%;
+    max-width: 300px;
+    margin: 10px auto;
+    /* Auto margin centers it without inline styles */
+    position: relative;
+    overflow: hidden;
+}
+
+/* WhatsApp Button */
+.btn-whatsapp {
+    background-color: #25D366;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    border: none;
+    animation: gentle-pulse 2s infinite;
+}
+
+.btn-whatsapp:hover {
+    transform: translateY(-3px);
+    background-color: #20bd5a;
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.6);
+}
+
+/* Instagram Button */
+.btn-instagram {
+    background-color: #fff;
+    color: #d62976;
+    border: 2px solid transparent;
+    background-image: linear-gradient(#fff, #fff),
+    linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.btn-instagram:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(214, 41, 118, 0.2);
+}
+
+@keyframes gentle-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+/* ========================
+   9. RESPONSIVE DESIGN
+   ======================== */
+@media (min-width: 768px) {
+    .artist-name {
+        font-size: 3rem;
+        letter-spacing: 2px;
+        margin-bottom: 0;
+    }
+
+    .tagline {
+        font-size: 1.2rem;
+        color: var(--heading-tagline-color);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 5px;
+    }
+
+    .stats-grid {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .service-card {
+        flex: 1 1 calc(50% - 20px);
+    }
+
+    .services-grid {
+
+        grid-template-columns: repeat(3, 1fr);
+
+    }
+
+    .gallery-item {
+        flex: 1 1 calc(33.333% - 15px);
+    }
+
+    .contact-actions {
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+    }
+}

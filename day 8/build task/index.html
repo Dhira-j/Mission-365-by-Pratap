@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body onload="bodyload()">
+<body onload="bodyload()" id="dark-mode">
 
     <header class="hero-section">
         <div class="container">
@@ -24,10 +24,11 @@
                 <h1 class="artist-name">
                     "Artist Name / Salon Name"
                 </h1>
-
+                <div class="theme-toggle">
+                    <div class="btn bi bi-moon-fill"></div>
+                </div>
 
             </div>
-            
 
             <p class="tagline">Professional Bridal Makeup Artist</p>
             <p class="location-tag">Serving City • Region • Country</p>
@@ -69,25 +70,8 @@
             <div class="container">
                 <h2 class="section-title">My Services</h2>
                 <div class="services-grid">
-                    <div class="service-card">
 
-                        <h3>Bridal Makeup</h3>
-                        <p>HD & Airbrush makeup for wedding functions.</p>
-
-
-                    </div>
-                    <div class="service-card">
-                        <h3>Engagement Look</h3>
-                        <p>Subtle, glowing looks for ring ceremonies.</p>
-                    </div>
-                    <div class="service-card">
-                        <h3>Party Makeup</h3>
-                        <p>Glamorous looks for bridesmaids and guests.</p>
-                    </div>
-                    <div class="service-card">
-                        <h3>Hair Styling</h3>
-                        <p>Traditional buns, open hair, and modern styling.</p>
-                    </div>
+               
                 </div>
             </div>
         </section>
@@ -117,7 +101,7 @@
             </div>
         </section>
 
-        <section>
+        <section class="form-section">
             <div class="container">
                 <h2 style="text-align: center;">Book Appointment</h2>
                 <div class="form">
@@ -185,121 +169,10 @@
     </footer>
 
 
-    <script>
-        var time = new Date();
 
 
 
-        function bodyload() {
-            statusBadge();
-            greetings();
-
-
-        }
-        function greetings() {
-            var greetings = document.querySelector(".tagline");
-            if (time.getHours() >= 5 && time.getHours() < 12) {
-                greetings.innerHTML = `"Good morning! Professional Bridal..."`;
-            } else if (time.getHours() >= 12 && time.getHours() < 17) {
-                greetings.innerHTML = `"good afternoon! Professional Bridal..."`;
-            } else if (time.getHours() >= 17 && time.getHours() < 19) {
-                greetings.innerHTML = `"Good evening! Professional Bridal..."`;
-            } else {
-                greetings.innerHTML = `"Good Night! Professional Bridal...";`
-            }
-
-        }
-        function statusBadge() {
-            var statusBadge = document.getElementById("status-badge");
-
-            (time.getDay() !== 0) ? statusBadge.innerText = `🟢 Available for Booking` : statusBadge.innerText = `🔴 Currently Offline (Weekend)`
-        }
-
-        var whatsapp = document.querySelectorAll(".btn-whatsapp");
-        var instagram = document.querySelector(".btn-instagram");
-
-
-        for (var button of whatsapp) {
-            button.addEventListener("click", function () {
-                alert("Connecting you to the artist...");
-            })
-        };
-
-        instagram.addEventListener("click", function () {
-            alert("Connecting you to the artist...");
-        })
-
-
-        function validateForm(event) {
-            // 1. Stop the page from refreshing
-            event.preventDefault();
-
-            // 2. Get all values
-            var username = document.getElementById("username");
-            var phone = document.getElementById("phone");
-            var date = document.getElementById("serviceDate");
-
-            // 3. Get all error display areas
-            var nameError = document.getElementById("nameError");
-            var phoneError = document.getElementById("phoneError");
-            var dateError = document.getElementById("dateError");
-            var successMsg = document.getElementById("successMsg");
-
-            // 4. Reset previous errors (Clear red borders/text before checking)
-            username.style.border = "1px solid #ccc";
-            phone.style.border = "1px solid #ccc";
-            date.style.border = "1px solid #ccc";
-            nameError.innerText = "";
-            phoneError.innerText = "";
-            dateError.innerText = "";
-            successMsg.innerText = "";
-
-            // 5. The "Flag" - We assume form is valid, unless we find an error
-            var isValid = true;
-
-            // --- Validation Logic ---
-
-            // Check Name
-            if (username.value.trim().length < 3) {
-                username.style.border = "2px solid red";
-                nameError.innerText = "Name must be at least 3 characters";
-                isValid = false; // Mark form as invalid
-            } else {
-                username.style.border = "2px solid green";
-            }
-
-            // Check Phone (Regex)
-            const phonePattern = /^\d{10}$/;
-            if (!phone.value.match(phonePattern)) {
-                phone.style.border = "2px solid red";
-                phoneError.innerText = "Phone must be exactly 10 digits";
-                isValid = false;
-            } else {
-                phone.style.border = "2px solid green";
-            }
-
-            // Check Date
-            if (date.value === "") {
-                date.style.border = "2px solid red";
-                dateError.innerText = "Please select a date";
-                isValid = false;
-            } else {
-                date.style.border = "2px solid green";
-            }
-
-            // 6. Final Decision
-            if (isValid === true) {
-                // If the flag is still true, everything passed!
-                successMsg.innerText = `Booking Confirmed for ${username.value}!`;
-                // Optional: Clear form
-                document.getElementById("bookingForm").reset();
-            }
-        }
-    </script>
-
-
-
-
+    <script src="script.js"></script>
 </body>
 
 </html>
