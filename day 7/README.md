@@ -1,4 +1,4 @@
-# 🚀 Day 5 – Execution Tasks  
+# 🚀 Day 7 – Execution Tasks  
 
 ## 📌 Today’s Tasks  
 - **Outreach**: 5 new DMs (fresh profiles only)  
